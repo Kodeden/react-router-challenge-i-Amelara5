@@ -1,8 +1,8 @@
-import { defer } from "react-router-dom";
-import index from "../api.service";
+import apiService from "../api.service";
 
-export default function loaders() {
-  const users = index();
-
-  return defer({ users });
+function loaders() {
+  const users = apiService.index();
+  return users;
 }
+
+export default loaders;

@@ -1,11 +1,11 @@
 import { useAsyncValue } from "react-router-dom";
-import User from "./user";
+import User from "./userName";
 
-export default function userList() {
-  const values = useAsyncValue();
+export default function UserList() {
+  const list = useAsyncValue();
   return (
     <ul>
-      {values.map((user) => (
+      {list.map((user) => (
         <User key={user.id} user={user} />
       ))}
     </ul>

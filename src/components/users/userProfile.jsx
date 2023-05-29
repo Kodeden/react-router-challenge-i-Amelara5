@@ -1,4 +1,7 @@
-function User({ user }) {
+import { useAsyncValue } from "react-router-dom";
+
+function Profile() {
+  const user = useAsyncValue();
   return (
     <>
       <div>{user.id}</div>
@@ -10,4 +13,4 @@ function User({ user }) {
   );
 }
 
-export default User;
+export default Profile;

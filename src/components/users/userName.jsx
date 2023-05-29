@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
-function User({ user }) {
+function UserName({ user }) {
   return (
     <li>
-      <Link to={user.id}>{user.name}</Link>
+      <Link to={`users/${user.id}`}>{user.name}</Link>
     </li>
   );
 }
 
-export default User;
+export default UserName;
 
 // {
 //     "id": "cbd13388-bd0e-4e12-b30e-45f2c218db39",

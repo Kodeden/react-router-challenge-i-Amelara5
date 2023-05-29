@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
+import NavBar from "./header/nav-bar";
 
 export default function Layout() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <NavBar />
+      {/* <h1 className="text-3xl font-bold underline">TEST</h1> */}
       <Outlet />
     </>
   );

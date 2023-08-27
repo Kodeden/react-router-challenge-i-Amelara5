@@ -1,7 +1,9 @@
 function addContact() {
   return (
     <>
-      <button> Add Contact</button>
+      <button className="rounded-md bg-blue-700 p-4 font-bold text-white">
+        Add Contact
+      </button>
     </>
   );
 }

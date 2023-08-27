@@ -13,6 +13,7 @@ import Profile from "./pages/profile";
 import userInformation from "./pages/loaders";
 
 import { ButtonEvent } from "./pages/actions";
+import UserInput from "./pages/userInput";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
         loader={userInformation}
         action={ButtonEvent}
       />
+      <Route path="add-edit" element={<UserInput />} />
       <Route path="*" element={<Error />} />
     </Route>
   )

@@ -1,18 +1,17 @@
-import { useSubmit } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function BackButton() {
-  const submit = useSubmit();
   return (
-    <>
+    <Link to={"/"}>
       <button
         className="menuButton"
-        onClick={() => {
-          submit(null, { method: "PATCH" });
-        }}
+        // onClick={() => {
+        //   submit({ value: "back", name: "intent" }, { method: "PATCH" });
+        // }}
       >
         Back
       </button>
-    </>
+    </Link>
   );
 }
 

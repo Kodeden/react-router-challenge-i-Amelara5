@@ -12,11 +12,18 @@ import Profile from "./pages/profile";
 
 import userInformation from "./pages/loaders";
 
+import { ButtonEvent } from "./pages/actions";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<Error />}>
       <Route index element={<Index />} loader={userInformation} />
-      <Route path="users/:id" element={<Profile />} loader={userInformation} />
+      <Route
+        path="users/:id"
+        element={<Profile />}
+        loader={userInformation}
+        action={ButtonEvent}
+      />
       <Route path="*" element={<Error />} />
     </Route>
   )

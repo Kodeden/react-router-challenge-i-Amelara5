@@ -14,4 +14,8 @@
   h2 {
     @apply mt-4 text-xl font-bold;
   }
+
+  .menuButton {
+    @apply rounded-md bg-orange-300 px-6 py-2 text-gray-500;
+  }
 }

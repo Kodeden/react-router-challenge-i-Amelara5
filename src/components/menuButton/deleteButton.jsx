@@ -1,5 +1,9 @@
 function deleteButton() {
-  return <></>;
+  return (
+    <>
+      <button className="menuButton">Delete</button>
+    </>
+  );
 }
 
 export default deleteButton;

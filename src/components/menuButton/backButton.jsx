@@ -1,5 +1,9 @@
 function backButton() {
-  return <></>;
+  return (
+    <>
+      <button className="menuButton">Back</button>
+    </>
+  );
 }
 
 export default backButton;

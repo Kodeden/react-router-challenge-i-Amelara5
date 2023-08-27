@@ -1,6 +1,8 @@
+import { Form } from "react-router-dom";
+
 function UserInput() {
   return (
-    <div className={"flex flex-col items-center justify-center"}>
+    <Form className={"flex flex-col items-center justify-center"}>
       <input
         className="contactInput"
         type="text"
@@ -22,7 +24,8 @@ function UserInput() {
         id="userPhone"
         placeholder="Phone"
       />
-    </div>
+      <button className="menuButton">Save</button>
+    </Form>
   );
 }
 

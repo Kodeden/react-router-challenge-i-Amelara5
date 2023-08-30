@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./header/nav-bar";
+import { useState } from "react";
 
 export default function Layout() {
+  const [userData, setUserData] = useState({});
   return (
     <>
       <NavBar />
-      {/* <h1 className="text-3xl font-bold underline">TEST</h1> */}
-      <Outlet />
+      <Outlet context={[userData, setUserData]} />
     </>
   );
 }

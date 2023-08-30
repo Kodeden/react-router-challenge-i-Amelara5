@@ -1,6 +1,7 @@
-import { Form } from "react-router-dom";
+import { Form, useOutletContext } from "react-router-dom";
 
 function UserInput() {
+  const [userData] = useOutletContext();
   return (
     <Form className={"flex flex-col items-center justify-center"}>
       <input

@@ -1,7 +1,7 @@
 import { Form, useOutletContext } from "react-router-dom";
 
 function UserInput() {
-  const [userData] = useOutletContext();
+  const [userData, setUserData] = useOutletContext();
   return (
     <Form className={"flex flex-col items-center justify-center"}>
       <input
@@ -10,6 +10,7 @@ function UserInput() {
         name="userName"
         id="userName"
         placeholder="Name"
+        defaultValue={setUserData ? userData.name : ""}
       />
       <input
         className="contactInput"
@@ -17,6 +18,7 @@ function UserInput() {
         name="userEmail"
         id="userEmail"
         placeholder="Email"
+        defaultValue={setUserData ? userData.email : ""}
       />
       <input
         className="contactInput"
@@ -24,6 +26,7 @@ function UserInput() {
         name="userPhone"
         id="userPhone"
         placeholder="Phone"
+        defaultValue={setUserData ? userData.tel : ""}
       />
       <button className="menuButton">Save</button>
     </Form>

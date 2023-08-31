@@ -12,6 +12,12 @@ export const ButtonEvent = async ({ request }) => {
       apiService.delete(data.id);
       return redirect("/");
     }
+    case "POST": {
+      // Make all phone# look like: ***-***-****
+      console.log(data);
+      apiService.create(data);
+      return redirect("/");
+    }
   }
 
   return null;

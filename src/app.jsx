@@ -25,7 +25,7 @@ const router = createBrowserRouter(
         loader={userInformation}
         action={ButtonEvent}
       />
-      <Route path="add-edit" element={<UserInput />} />
+      <Route path="add-edit" element={<UserInput />} action={ButtonEvent} />
       <Route path="*" element={<Error />} />
     </Route>
   )

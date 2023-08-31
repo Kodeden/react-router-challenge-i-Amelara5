@@ -6,7 +6,7 @@ export default function Layout() {
   const [userData, setUserData] = useState({});
   return (
     <>
-      <NavBar />
+      <NavBar setUserData={setUserData} />
       <Outlet context={[userData, setUserData]} />
     </>
   );

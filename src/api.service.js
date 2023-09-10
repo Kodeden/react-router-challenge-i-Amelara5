@@ -24,7 +24,7 @@ export default {
 
   async update(id, updatedUser) {
     const response = await fetch(`${BASE_URL}/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       body: JSON.stringify(updatedUser),
       headers: {
         "Content-Type": "application/json",

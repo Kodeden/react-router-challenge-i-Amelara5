@@ -6,6 +6,8 @@ export const ButtonEvent = async ({ request }) => {
   const data = Object.fromEntries(fd);
   switch (request.method) {
     case "PATCH": {
+      const id = data.id;
+      apiService.update(id, data);
       return redirect("/");
     }
     case "DELETE": {
@@ -14,7 +16,6 @@ export const ButtonEvent = async ({ request }) => {
     }
     case "POST": {
       // Make all phone# look like: ***-***-****
-      console.log(data);
       apiService.create(data);
       return redirect("/");
     }

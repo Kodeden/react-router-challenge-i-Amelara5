@@ -1,7 +1,7 @@
 import { Link, useOutletContext } from "react-router-dom";
 
 function EditButton({ user }) {
-  const [userData, setUserData] = useOutletContext();
+  const [_, setUserData] = useOutletContext();
   return (
     <Link to={"/add-edit"}>
       <button

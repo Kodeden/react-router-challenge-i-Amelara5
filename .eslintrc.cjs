@@ -19,6 +19,7 @@ module.exports = {
   },
   plugins: ["react", "use-encapsulation", "testing-library", "jest-dom"],
   rules: {
+    "no-unused-vars": ["error", { destructuredArrayIgnorePattern: "^_" }],
     "react/prop-types": "off",
     "use-encapsulation/prefer-custom-hooks": 1,
   },

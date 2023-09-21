@@ -1,10 +1,18 @@
+import { useState } from "react";
 import { useAsyncValue } from "react-router-dom";
 import { groupContactsByLetterUsingLastNames } from "../../utils";
 import User from "./userName";
 
 export default function UserList() {
   const list = useAsyncValue();
-  const orderedList = groupContactsByLetterUsingLastNames(list);
+
+  const [search, setSearch] = useState("");
+
+  const orderedList = groupContactsByLetterUsingLastNames(
+    list.filter((user) =>
+      user.name.toLowerCase().includes(search.toLowerCase())
+    )
+  );
 
   const keys = Object.keys(orderedList);
   const values = Object.values(orderedList);
@@ -15,6 +23,9 @@ export default function UserList() {
         type="text"
         className="contactInput"
         placeholder="Find ... 🔍"
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
       ></input>
       {keys.map((letter, index) => {
         return (

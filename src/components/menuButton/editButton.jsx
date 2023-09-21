@@ -1,17 +1,9 @@
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function EditButton({ user }) {
-  const [_, setUserData] = useOutletContext();
   return (
-    <Link to={"/add-edit"}>
-      <button
-        className="menuButton"
-        onClick={() => {
-          return setUserData(user);
-        }}
-      >
-        Edit
-      </button>
+    <Link to={"/add-edit"} state={{ user }} className="menuButton">
+      Edit
     </Link>
   );
 }

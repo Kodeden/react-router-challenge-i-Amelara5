@@ -1,17 +1,17 @@
-import { Form, useOutletContext } from "react-router-dom";
+import { Form, useLocation } from "react-router-dom";
 
 function UserInput() {
-  const [userData, setUserData] = useOutletContext();
+  const { state } = useLocation();
   return (
     <Form
       className={"flex flex-col items-center justify-center"}
-      method={userData ? "PATCH" : "POST"}
+      method={state ? "PATCH" : "POST"}
     >
       <input
         type="hidden"
         name="id"
         id="id"
-        value={userData ? userData.id : ""}
+        value={state ? state.user.id : ""}
       />
       <input
         className="contactInput"
@@ -19,7 +19,7 @@ function UserInput() {
         name="name"
         id="userName"
         placeholder="Name"
-        defaultValue={setUserData ? userData.name : ""}
+        defaultValue={state ? state.user.name : ""}
       />
       <input
         className="contactInput"
@@ -27,7 +27,7 @@ function UserInput() {
         name="tel"
         id="userPhone"
         placeholder="Phone"
-        defaultValue={setUserData ? userData.tel : ""}
+        defaultValue={state ? state.user.tel : ""}
       />
       <input
         className="contactInput"
@@ -35,7 +35,7 @@ function UserInput() {
         name="email"
         id="userEmail"
         placeholder="Email"
-        defaultValue={setUserData ? userData.email : ""}
+        defaultValue={state ? state.user.email : ""}
       />
       <button className="menuButton">Save</button>
     </Form>

@@ -29,7 +29,7 @@ export default function UserList() {
       ></input>
       {keys.map((letter, index) => {
         return (
-          <>
+          <div key={index + 50}>
             <h2 className="" key={index}>
               {letter}
             </h2>
@@ -38,7 +38,7 @@ export default function UserList() {
                 return <User key={user.id} user={user} />;
               })}
             </ul>
-          </>
+          </div>
         );
       })}
     </div>

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 function UserName({ user }) {
   return (
     <li>
-      <Link to={`users/${user.id}`}>{user.name}</Link>
+      <Link to={`users/${user.id}`} key={user.id}>
+        {user.name}
+      </Link>
     </li>
   );
 }

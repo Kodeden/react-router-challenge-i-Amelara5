@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AddContact from "./addContact";
+import AddContact from "./AddContact";
 
 function NavBar() {
   return (

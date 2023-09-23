@@ -1,7 +1,9 @@
 import { useAsyncValue } from "react-router-dom";
-import BackButton from "../menuButton/backButton";
-import DeleteButton from "../menuButton/deleteButton";
-import EditButton from "../menuButton/editButton";
+import {
+  BackButton,
+  EditButton,
+  DeleteButton,
+} from "../menuButton/MenuDirectory";
 
 function Profile() {
   const user = useAsyncValue();

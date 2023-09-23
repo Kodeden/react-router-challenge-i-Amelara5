@@ -1,7 +1,8 @@
-import { useSubmit } from "react-router-dom";
+import { useNavigation, useSubmit } from "react-router-dom";
 
 function DeleteButton({ userId }) {
   const submit = useSubmit();
+  const navigation = useNavigation();
 
   return (
     <>
@@ -10,6 +11,7 @@ function DeleteButton({ userId }) {
         onClick={() => {
           submit({ id: userId }, { method: "DELETE" });
         }}
+        disabled={navigation.state !== "idle"}
       >
         Delete
       </button>

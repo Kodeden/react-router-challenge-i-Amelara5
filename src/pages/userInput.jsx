@@ -1,7 +1,8 @@
-import { Form, useLocation } from "react-router-dom";
+import { Form, useLocation, useNavigation } from "react-router-dom";
 
 function UserInput() {
   const { state } = useLocation();
+  const stateOfButton = useNavigation();
   return (
     <Form
       className={"flex flex-col items-center justify-center"}
@@ -37,7 +38,9 @@ function UserInput() {
         placeholder="Email"
         defaultValue={state ? state.user.email : ""}
       />
-      <button className="menuButton">Save</button>
+      <button className="menuButton" disabled={stateOfButton.state !== "idle"}>
+        Save
+      </button>
     </Form>
   );
 }

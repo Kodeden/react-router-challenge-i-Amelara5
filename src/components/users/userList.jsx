@@ -1,21 +1,10 @@
-import { useState } from "react";
 import { useAsyncValue } from "react-router-dom";
-import { groupContactsByLetterUsingLastNames } from "../../utils";
-import User from "./userName";
+import useOrganizedList from "../hooks/useOrganizedList";
+import User from "./UserName";
 
 export default function UserList() {
   const list = useAsyncValue();
-
-  const [search, setSearch] = useState("");
-
-  const orderedList = groupContactsByLetterUsingLastNames(
-    list.filter((user) =>
-      user.name.toLowerCase().includes(search.toLowerCase())
-    )
-  );
-
-  const keys = Object.keys(orderedList);
-  const values = Object.values(orderedList);
+  const { keys, values, setSearch } = useOrganizedList(list);
 
   return (
     <div className=" flex flex-col items-center">

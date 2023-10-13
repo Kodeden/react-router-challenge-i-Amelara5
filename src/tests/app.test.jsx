@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "../app";
 import { expect } from "vitest";
 import databaseList from "../../db.json";
+import userEvent from "@testing-library/user-event";
 
 it("loads data", async () => {
   render(<App />);
@@ -40,26 +41,42 @@ it("adds a contact", async () => {
   // await user.click(await screen.getByRole("button", { name: /save/i }));
 });
 
-// it("adds a contac", async () => {
-//   const appRender = render(<App />);
+// it("edits a contact", async () => {
+//   render(<App />);
 // });
 
 // it("deletes a contact", async () => {
-//   const appRender = render(<App />);
+//   render(<App />);
 // });
 
 // it("searches a user", async () => {
-//   const appRender = render(<App />);
+//   render(<App />);
 // });
 
 // it("loads a user profile", async () => {
-//   const appRender = render(<App />);
+//   render(<App />);
 // });
 
-// it("edits a contact", async () => {
-//   const appRender = render(<App />);
-// });
+it("can go back to home page", async () => {
+  const app = render(<App />);
+  const user = userEvent.setup();
 
-// it("can go back to home page", async () => {
+  const addContactLink = await screen.getByRole("link", {
+    name: /add contact/i,
+  });
+  user.click(addContactLink);
+  // const formElement = await screen.getByRole("form", {
+  //   name: "",
+  // });
+  // expect(app).toContain(formElement); <--- Need to see what element I can use in expect. To check if is in the right page.
+
+  // const contactsLink = await screen.getByRole("link", { name: /Contacts/i });
+  // user.click(contactsLink);
+
+  // const webPageList = await screen.findAllByRole("listitem");
+  // expect(webPageList).toHaveLength(databaseList.users.length);
+});
+
+// it("shows the alphabetical order", async () => {
 //   const appRender = render(<App />);
 // });

@@ -7,6 +7,7 @@ function UserInput() {
     <Form
       className={"flex flex-col items-center justify-center"}
       method={state ? "PATCH" : "POST"}
+      name="userInformation"
     >
       <input
         type="hidden"
@@ -14,6 +15,7 @@ function UserInput() {
         id="id"
         value={state ? state.user.id : ""}
       />
+      <label htmlFor="userName">Name</label>
       <input
         className="contactInput"
         type="text"
@@ -22,6 +24,7 @@ function UserInput() {
         placeholder="Name"
         defaultValue={state ? state.user.name : ""}
       />
+      <label htmlFor="userPhone">Phone number</label>
       <input
         className="contactInput"
         type="tel"
@@ -30,6 +33,7 @@ function UserInput() {
         placeholder="Phone"
         defaultValue={state ? state.user.tel : ""}
       />
+      <label htmlFor="userEmail">Email</label>
       <input
         className="contactInput"
         type="email"

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "../app";
 import { expect } from "vitest";
 import databaseList from "../../db.json";
@@ -22,11 +22,12 @@ it("adds a contact", async () => {
     name: /Add Contact/i,
   });
 
-  user.click(addContactButton);
+  await user.click(addContactButton);
 
   //  I have to check why 'form' alone doesn't work. Or try using "" as the name
   // await screen.getByRole("form", { name: /userInformation/i });
   //  For 'textbox' to be reachable and have a name. I have to add a label to it.
+  // Use .getByLabelText(...)
   const userName = await screen.getByRole("textbox", { name: /name/i });
   const userPhone = await screen.getByRole("textbox", {
     name: /phone number/i,
@@ -38,7 +39,7 @@ it("adds a contact", async () => {
   await user.type(userEmail, "jd@email.com");
 
   // Check why once the button is pressed it keeps repeating itself
-  // await user.click(await screen.getByRole("button", { name: /save/i }));
+  // await user.click(screen.getByRole("button", { name: /save/i }));
 });
 
 // it("edits a contact", async () => {
@@ -58,23 +59,18 @@ it("adds a contact", async () => {
 // });
 
 it("can go back to home page", async () => {
-  const app = render(<App />);
+  render(<App />);
   const user = userEvent.setup();
-
-  const addContactLink = await screen.getByRole("link", {
+  const addContactLink = screen.getByRole("link", {
     name: /add contact/i,
   });
-  user.click(addContactLink);
-  // const formElement = await screen.getByRole("form", {
-  //   name: "",
-  // });
+  await user.click(addContactLink);
+  screen.getByRole("form");
   // expect(app).toContain(formElement); <--- Need to see what element I can use in expect. To check if is in the right page.
-
-  // const contactsLink = await screen.getByRole("link", { name: /Contacts/i });
-  // user.click(contactsLink);
-
-  // const webPageList = await screen.findAllByRole("listitem");
-  // expect(webPageList).toHaveLength(databaseList.users.length);
+  const contactsLink = screen.getByRole("link", { name: /Contacts/i });
+  await user.click(contactsLink);
+  const webPageList = await screen.findAllByRole("listitem");
+  expect(webPageList).toHaveLength(databaseList.users.length);
 });
 
 // it("shows the alphabetical order", async () => {

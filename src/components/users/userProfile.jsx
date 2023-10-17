@@ -9,13 +9,13 @@ function Profile() {
   const user = useAsyncValue();
   return (
     <>
-      <div className="m-1 flex flex-col items-center justify-center">
+      <main className="m-1 flex flex-col items-center justify-center">
         {/* <div>{user.id}</div> */}
         <div>{user.name}</div>
         <div>{user.tel}</div>
         <div>{user.email}</div>
         <img src={user.img} alt="Profile" />
-      </div>
+      </main>
       <div className="flex flex-col items-center justify-center">
         <BackButton />
         <EditButton user={user} />

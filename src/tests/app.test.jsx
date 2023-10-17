@@ -14,6 +14,22 @@ it("loads data", async () => {
   expect(webPageList).toHaveLength(databaseList.users.length);
 });
 
+it("loads a user profile", async () => {
+  const userNumber = Math.floor(Math.random() * databaseList.users.length);
+
+  //  Can't search for the user in the unorganized list and then in the organized because the positions of the user has changed.
+  // const databaseName = databaseList.users[userNumber + 1];
+  // console.log(databaseName);
+
+  render(<App />);
+  const user = userEvent.setup();
+
+  const userLink = await screen.findAllByRole("listitem");
+  await user.click(userLink[userNumber].children[0]);
+
+  await screen.findByRole("main");
+});
+
 it("adds a contact", async () => {
   render(<App />);
   const user = userEvent.setup();
@@ -51,10 +67,6 @@ it("adds a contact", async () => {
 // });
 
 // it("searches a user", async () => {
-//   render(<App />);
-// });
-
-// it("loads a user profile", async () => {
 //   render(<App />);
 // });
 

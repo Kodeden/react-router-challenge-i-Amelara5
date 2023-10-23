@@ -56,10 +56,16 @@ it("adds a contact", async () => {
 
   // Check why once the button is pressed it keeps repeating itself
   // await user.click(screen.getByRole("button", { name: /save/i }));
+
+  const home = screen.getByRole("link", {name: /Contacts/i})
+  await user.click(home)
 });
 
 // it("edits a contact", async () => {
 //   render(<App />);
+//   const user = userEvent.setup();
+
+
 // });
 
 it("deletes a contact", async () => {
@@ -91,6 +97,7 @@ it("can go back to home page", async () => {
   const webPageList = await screen.findAllByRole("listitem");
   expect(webPageList).toHaveLength(databaseList.users.length);
 });
+
 it("searches a user", async () => {
   const databaseResults = databaseList.users.filter((user) =>
     user.name.includes("John")

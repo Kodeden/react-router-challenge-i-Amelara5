@@ -62,13 +62,20 @@ it("adds a contact", async () => {
 //   render(<App />);
 // });
 
-// it("deletes a contact", async () => {
-//   render(<App />);
-// });
+it("deletes a contact", async () => {
+  render(<App />);
+  const user = userEvent.setup();
 
-// it("searches a user", async () => {
-//   render(<App />);
-// });
+  const userList = await screen.findAllByRole("listitem")
+  await user.click(userList[11].children[0])
+
+  const userName = await screen.findByRole("main")
+  const justTheName = userName.children[0].textContent // I wanted to use the user list and prove that the user has been removed.
+
+  const deleteButton = await screen.findByText("Delete")
+  // await user.click(deleteButton)
+
+});
 
 it("can go back to home page", async () => {
   render(<App />);

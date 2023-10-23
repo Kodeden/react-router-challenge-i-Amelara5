@@ -91,6 +91,21 @@ it("can go back to home page", async () => {
   const webPageList = await screen.findAllByRole("listitem");
   expect(webPageList).toHaveLength(databaseList.users.length);
 });
+it("searches a user", async () => {
+  const databaseResults = databaseList.users.filter((user) =>
+    user.name.includes("John")
+  );
+
+  render(<App />);
+
+  const user = userEvent.setup();
+  const searchBar = screen.getByPlaceholderText("Find ... 🔍");
+
+  await user.type(searchBar, "John");
+  const results = await screen.findAllByRole("listitem");
+
+  expect(databaseResults.length).toBe(results.length);
+});
 
 // it("shows the alphabetical order", async () => {
 //   const appRender = render(<App />);

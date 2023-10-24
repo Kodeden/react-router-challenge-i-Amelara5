@@ -3,7 +3,7 @@ import {
   BackButton,
   EditButton,
   DeleteButton,
-} from "../menuButton/MenuDirectory";
+} from "../menuButtons/MenuDirectory";
 
 function Profile() {
   const user = useAsyncValue();

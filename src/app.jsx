@@ -5,15 +5,15 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
-import Error from "./components/error";
-import Layout from "./components/layout";
-import Index from "./pages/index";
-import Profile from "./pages/profile";
+import Error from "./components/Error";
+import Layout from "./components/Layout";
+import Index from "./pages";
+import Profile from "./pages/Profile";
 
 import userInformation from "./pages/loaders";
 
 import { ButtonEvent } from "./pages/actions";
-import UserInput from "./pages/userInput";
+import UserInput from "./pages/UserInput";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

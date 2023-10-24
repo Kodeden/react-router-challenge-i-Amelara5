@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function addContact() {
+function AddContact() {
   return (
     <Link
       to={"/add-edit"}
@@ -11,4 +11,4 @@ function addContact() {
   );
 }
 
-export default addContact;
+export default AddContact;

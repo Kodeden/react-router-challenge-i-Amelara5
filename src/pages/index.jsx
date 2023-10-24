@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
-import Loading from "../components/loading";
-import UserList from "../components/users/userList";
+import Loading from "../components/Loading";
+import UserList from "../components/users/UserList";
 
 function Index() {
   const users = useLoaderData();

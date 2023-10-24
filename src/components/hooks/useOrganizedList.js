@@ -3,9 +3,12 @@ import {
   groupContactsByLetterUsingLastNames,
 } from "@utils";
 import { useState } from "react";
+import { useAsyncValue } from "react-router-dom";
 
-function useOrganizeList(list) {
+function useOrganizeList() {
   const [search, setSearch] = useState("");
+
+  const list = useAsyncValue();
 
   const orderedList = groupContactsByLetterUsingLastNames(
     alphabetizeContactsByLastName(

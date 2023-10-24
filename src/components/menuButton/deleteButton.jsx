@@ -5,17 +5,15 @@ function DeleteButton({ userId }) {
   const navigation = useNavigation();
 
   return (
-    <>
-      <button
-        className="menuButton"
-        onClick={() => {
-          submit({ id: userId }, { method: "DELETE" });
-        }}
-        disabled={navigation.state !== "idle"}
-      >
-        Delete
-      </button>
-    </>
+    <button
+      className="menuButton"
+      onClick={() => {
+        submit({ id: userId }, { method: "DELETE" });
+      }}
+      disabled={navigation.state !== "idle"}
+    >
+      Delete
+    </button>
   );
 }
 

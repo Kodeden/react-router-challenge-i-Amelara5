@@ -10,7 +10,7 @@
     "start": "vite",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui"
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "ky": "^1.0.1",

@@ -14,10 +14,9 @@ module.exports = {
     "prettier",
   ],
   overrides: [
-//     {"files": ["cypress/**/*.js"],
-//   rules: {"testing-library/await-async-queries": "off",
-// "testing-library/prefer-screen-queries": "off",},}
-
+    //     {"files": ["cypress/**/*.js"],
+    //   rules: {"testing-library/await-async-queries": "off",
+    // "testing-library/prefer-screen-queries": "off",},}
   ],
   parserOptions: {
     ecmaVersion: "latest",

@@ -23,6 +23,7 @@ it("adds a contact", () => {
     expect(tel).to.equal(NEW_PHONE);
   });
 });
+
 it("updates a user", () => {
   cy.intercept("GET", "/users", { fixture: "contacts.json" });
   cy.intercept("PATCH", "/users/9abe94e6-4639-4305-a630-1a8d53792fd2").as(
@@ -63,4 +64,29 @@ it("updates a user", () => {
   //   "img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1212.jpg",
   //   "email": "Leigh_Ernser@hotmail.com"
   // }
+});
+
+it("deletes a user", () => {
+  cy.intercept("GET", "/users", { fixture: "contacts.json" });
+  cy.intercept(
+    "DELETE",
+    "/users/546e10c3-61fd-487c-982f-bf5bc00fa8ef",
+    (request, response) => {
+      console.log(request, "DELETE REQUEST");
+      console.log(response, "DELETE RESPONSE");
+    },
+  ).as("deleteUser");
+
+  cy.visit("http://localhost:5173");
+
+  cy.findByRole("link", { name: "Jo Raynor" }).click();
+
+  cy.findByRole("button", { name: /Delete/i }).click();
+  cy.wait("@deleteUser").then((request, response) => {
+    console.log(request);
+    console.log(response);
+  });
+
+  // cy.findAllByRole("listitem").as("list");
+  // cy.get("list").first().click();
 });

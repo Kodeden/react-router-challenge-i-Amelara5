@@ -1,17 +1,22 @@
 import { useState } from "react";
-import { groupContactsByLetterUsingLastNames } from "../utils";
+import {
+  alphabetizeContactsByLastName,
+  groupContactsByLetterUsingLastNames,
+} from "../utils";
 
 function useOrganizeList(list) {
   const [search, setSearch] = useState("");
 
-  const orderedList = groupContactsByLetterUsingLastNames(
-    list.filter((user) =>
-      user.name.toLowerCase().includes(search.toLowerCase()),
+  const alphabetizedOrderedList = groupContactsByLetterUsingLastNames(
+    alphabetizeContactsByLastName(
+      list.filter((user) =>
+        user.name.toLowerCase().includes(search.toLowerCase()),
+      ),
     ),
   );
 
-  const keys = Object.keys(orderedList);
-  const values = Object.values(orderedList);
+  const keys = Object.keys(alphabetizedOrderedList);
+  const values = Object.values(alphabetizedOrderedList);
 
   return { keys, values, setSearch };
 }

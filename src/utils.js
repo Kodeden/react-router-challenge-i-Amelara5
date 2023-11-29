@@ -13,7 +13,6 @@ function getFirstLetterOfLastName(name) {
 }
 
 export const alphabetizeContactsByLastName = (contacts) => {
-  // Within a React app, it's best to avoid mutations for performance and other reasons.
   const contactsCopy = structuredClone(contacts);
 
   return contactsCopy.sort((a, b) => {

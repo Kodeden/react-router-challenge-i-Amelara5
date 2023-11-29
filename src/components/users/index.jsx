@@ -1,6 +1,6 @@
+import useOrganizedList from "@hooks/use-organized-list";
 import { useAsyncValue } from "react-router-dom";
-import useOrganizedList from "../hooks/useOrganizedList";
-import User from "./UserName";
+import User from "./user-name";
 
 export default function UserList() {
   const list = useAsyncValue();

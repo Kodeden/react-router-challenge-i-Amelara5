@@ -4,8 +4,8 @@ export default function Error() {
   const asyncError = useAsyncError();
   const routeError = useRouteError();
 
-  console.log(asyncError);
-  console.log(routeError);
+  console.error(asyncError);
+  console.error(routeError);
   const error = asyncError || routeError;
 
   return (

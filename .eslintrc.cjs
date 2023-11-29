@@ -24,6 +24,12 @@ module.exports = {
   },
   plugins: ["react", "use-encapsulation", "testing-library", "jest-dom"],
   rules: {
+    "no-console": [
+      "warn",
+      {
+        allow: ["error", "info", "table", "warn"],
+      },
+    ],
     "no-unused-vars": ["error", { destructuredArrayIgnorePattern: "^_" }],
     "react/prop-types": "off",
     "use-encapsulation/prefer-custom-hooks": 1,
